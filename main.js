@@ -22,7 +22,7 @@ function input(prompt) {
 var n = await input("Number: ");
   const browser = await puppeteer.launch({headless: false});
   const page = await browser.newPage();
-  await page.goto('https://developers.google.com/web/', {waitUntil: 'networkidle2'});
+  await page.goto('https://snipes.com/login', {waitUntil: 'networkidle2'});
   await page.type('#searchbox input', 'Headless Chrome');
   //await page.screenshot({path: 'screen.jpg', fullPage: true});
   await page.waitFor(5000);
