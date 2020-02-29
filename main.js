@@ -26,11 +26,12 @@ function input(prompt) {
 
   const browser = await puppeteer.launch({headless: false});
   const page = await browser.newPage();
+  await page.setViewport({ width: 1366, height: 768});
 
   await page.goto('https://snipes.com/login', {waitUntil: 'networkidle2'});
   await page.type('input[type=email]', email);
   await page.type('input[type=password]', password + '\n');
-  await page.waitForNavigation({ waitUntil: 'networkidle0' });
+  await page.waitForNavigation({ waitUntil: 'networkidle2' });
   console.log('logged in');
 
   //await page.evaluate(async() => { window.scrollBy(0, 10); });
